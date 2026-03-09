@@ -1,21 +1,24 @@
 package com.github.luaanslv.sysb.service;
 
-import com.github.luaanslv.sysb.model.entities.Usuario;
+import com.github.luaanslv.sysb.model.entitiy.Usuario;
 import com.github.luaanslv.sysb.repository.UsuarioRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Service
-public class UsuarioService {
+@RequiredArgsConstructor
+public class UserAtividadeService {
 
-    private UsuarioRepository repository;
+    private final UsuarioRepository repository;
 
-    public UsuarioService(UsuarioRepository repository) {
-        this.repository = repository;
+    public Usuario buscarPorEmail(String email) {
+        return  repository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuario não encontrado com email" + email));
     }
 
-    public void salvarDtCadastro(String email, Date dtCadastro){
+    public void salvarDtCadastro(String email, LocalDateTime dtCadastro){
         Usuario usuario = repository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Registro de cadastro não encontrado para o email: " + email));
 
@@ -24,13 +27,14 @@ public class UsuarioService {
 
     }
 
-    public void salvarUltimoAcesso(String email, Date dtUltimoAcesso){
+    public void salvarUltimoAcesso(String email){
         Usuario usuario = repository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Registro de ultimo acesso não encontrado para o email: " + email));
 
-        usuario.setDtUltimoAcesso(dtUltimoAcesso);
+        usuario.setDtUltimoAcesso(LocalDateTime.now());
         repository.save(usuario);
     }
+
 
 
 }

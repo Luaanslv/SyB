@@ -1,4 +1,4 @@
-package com.github.luaanslv.sysb.model.entities;
+package com.github.luaanslv.sysb.model.entitiy;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

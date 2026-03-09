@@ -1,4 +1,4 @@
-package com.github.luaanslv.sysb.model.entities;
+package com.github.luaanslv.sysb.model.entitiy;
 
 
 import jakarta.persistence.*;
@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,7 +21,7 @@ import java.util.Date;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUsuario")
+    @Column(name = "idUsuario", insertable = false, updatable = false)
     private Integer idUsuario;
 
     @ManyToOne
@@ -42,10 +42,10 @@ public class Usuario {
     private String email;
 
     @Column(name = "dtCadastro", nullable = false)
-    private Date dtCadastro;
+    private LocalDateTime dtCadastro;
 
     @Column(name = "dtUltimoAcesso", nullable = false)
-    private Date dtUltimoAcesso;
+    private LocalDateTime dtUltimoAcesso;
 
     @NotBlank(message = "A senha é obrigatoria")
     @Column(name = "senha", nullable = false)
