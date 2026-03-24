@@ -1,45 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/output.css" rel="stylesheet">
-    <title>SYB</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/output.css" rel="stylesheet">
+  <title>SYB</title>
 </head>
+
 <body>
-<div class="min-h-screen bg-[#ffff] flex items-center justify-center p-4">
-  
-  <div class="bg-[#D1D1D1] w-[400px] rounded-lg p-8 flex flex-col items-center shadow-2xl">
-    
-    <div class="mb-8">
-      <img src="../resources/imgs/logo.png" alt="SYB Logo" class="w-48">
+  <div class="min-h-screen bg-[#ffff] flex items-center justify-center p-4">
+
+    <div class="bg-[#D1D1D1] w-100 rounded-lg p-8 flex flex-col items-center shadow-2xl">
+
+      <div class="mb-8">
+        <img src="../resources/imgs/logo.png" alt="SYB Logo" class="w-48">
+      </div>
+      <p id="mensagem-erro" class="text-red-500"></p>
+      <p class="self-start text-black font-bold text-xl mb-4">Login</p>
+
+      <div class="w-full flex flex-col gap-3">
+        <input type="text" placeholder="Usuário"
+          class="w-full border-2 border-black rounded-lg p-2 bg-transparent placeholder-gray-600 outline-none"
+          id="user">
+
+        <input type="password" placeholder="Senha"
+          class="w-full border-2 border-black rounded-lg p-2 bg-transparent placeholder-gray-600 outline-none"
+          id="senha">
+      </div>
+
+      <span class="self-start text-xs text-gray-700 mt-2 cursor-pointer hover:underline">
+        Esqueceu a senha?
+      </span>
+
+      <button onclick="fazerLogin()"
+        class="mt-6 bg-[#3B67BF] text-white px-10 py-2 rounded-lg font-semibold cursor-pointer hover:bg-[#4178BF] transition-colors">
+        Entrar
+      </button>
+
+      <div class="mt-10 text-sm">
+        <strong class="text-black">Primeiro acesso?</strong>
+        <a href="../pages/cadastro.html" class="text-[#3B67BF] underline ml-1 cursor-pointer">Cadastrar agora</a>
+      </div>
+
     </div>
-
-    <p class="self-start text-black font-bold text-xl mb-4">Login</p>
-
-    <div class="w-full flex flex-col gap-3">
-      <input type="text" placeholder="Usuário" 
-             class="w-full border-2 border-black rounded-lg p-2 bg-transparent placeholder-gray-600 outline-none">
-      
-      <input type="password" placeholder="Senha" 
-             class="w-full border-2 border-black rounded-lg p-2 bg-transparent placeholder-gray-600 outline-none">
-    </div>
-
-    <span class="self-start text-xs text-gray-700 mt-2 cursor-pointer hover:underline">
-      Esqueceu a senha?
-    </span>
-
-    <button class="mt-6 bg-[#457397] text-white px-10 py-2 rounded-lg font-semibold cursor-pointer hover:bg-[#345a77] transition-colors">
-      Entrar
-    </button>
-
-    <div class="mt-10 text-sm">
-      <strong class="text-black">Primeiro acesso?</strong>
-      <a href="#" class="text-[#457397] underline ml-1 cursor-pointer">Cadastrar agora</a>
-    </div>
-
   </div>
-</div>
+
+  <script src="../script/login.js"></script>
 </body>
-        
+
 </html>
